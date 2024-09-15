@@ -272,17 +272,17 @@ static void token_next(ParserContext* context) {
     context->type = T_INVALID;
     context->value = 0;
     if (*context->input == '\0') context->type = T_EOF;
-    else if (isspace(*context->input)) {
-        do ++context->input; while (isspace(*context->input));
+    else if (isspace((unsigned char)*context->input)) {
+        do ++context->input; while (isspace((unsigned char)*context->input));
         context->type = T_WS;
-    } else if (isdigit(*context->input)) {
+    } else if (isdigit((unsigned char)*context->input)) {
         do {
             context->value = context->value * 10 + (*context->input - '0');
             ++context->input;
-        } while (isdigit(*context->input));
+        } while (isdigit((unsigned char)*context->input));
         context->type = T_NUMBER;
-    } else if (isalpha(*input)) {
-        do  ++input; while (isalpha(*input));
+    } else if (isalpha((unsigned char)*input)) {
+        do  ++input; while (isalpha((unsigned char)*input));
         context->value = match_ordinals(context->input, DAYS_ARR, CRON_DAYS_ARR_LEN);
         if (context->value < 0) context->value = match_ordinals(context->input, MONTHS_ARR, CRON_MONTHS_ARR_LEN);
         if (context->value < 0) goto rest;

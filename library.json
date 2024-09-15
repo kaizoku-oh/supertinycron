@@ -1,0 +1,33 @@
+{
+    "name": "supertinycron",
+    "version": "2.0.0",
+    "description": "A very small replacement for cron. Particularly useful within containers and for distributing cron tasks alongside a project as a standalone file.",
+    "keywords": "cron, tiny, schedule",
+    "export": {
+      "exclude": [
+        "ccronexpr_test.c",
+        "supertinycron.c"
+      ]
+    },
+    "build": {
+      "flags": [
+        "-DCRON_USE_LOCAL_TIME=1"
+      ]
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/exander77/supertinycron.git"
+    },
+    "authors": [
+      {
+        "name": "John Smith",
+        "email": "me@john-smith.com",
+        "url": "https://www.john-smith/contact"
+      }
+    ],
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/exander77/supertinycron",
+    "dependencies": {},
+    "frameworks": "espidf",
+    "platforms": "espressif32"
+  }
